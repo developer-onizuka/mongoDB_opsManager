@@ -47,6 +47,7 @@ tcp        0      0 127.0.0.1:27017         0.0.0.0:*               LISTEN      
 
 $ sudo yum install -y wget
 $ wget https://downloads.mongodb.com/on-prem-mms/rpm/mongodb-mms-5.0.3.100.20211005T2044Z-1.x86_64.rpm
+$ sudo rpm -ivh mongodb-mms-5.0.3.100.20211005T2044Z-1.x86_64.rpm 
 
 $ id mongodb-mms
 uid=991(mongodb-mms) gid=988(mongodb-mms) groups=988(mongodb-mms)
