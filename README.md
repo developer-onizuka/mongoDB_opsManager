@@ -5,15 +5,15 @@ https://docs.mongodb.com/manual/tutorial/install-mongodb-enterprise-on-red-hat/
 
 ```
 $ sudo su
-# cat << EOF > /etc/yum.repos.d/mongodb-enterprise-5.0.repo 
-[mongodb-enterprise-5.0]
-name=MongoDB Enterprise Repository
-baseurl=https://repo.mongodb.com/yum/redhat/8/mongodb-enterprise/5.0/x86_64/
+# cat << EOF > /etc/yum.repos.d/mongodb-org-5.0.repo  
+[mongodb-org-5.0]
+name=MongoDB Repository
+baseurl=https://repo.mongodb.org/yum/redhat/8/mongodb-org/5.0/x86_64/
 gpgcheck=1
 enabled=1
 gpgkey=https://www.mongodb.org/static/pgp/server-5.0.asc
 EOF
-# dnf install -y mongodb-enterprise
+# dnf install -y mongodb-org
 
 # sudo mkdir -p /data/appdb
 # sudo chown -R mongod:mongod /data
