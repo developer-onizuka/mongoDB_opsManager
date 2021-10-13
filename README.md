@@ -4,6 +4,14 @@ https://docs.opsmanager.mongodb.com/current/core/system-overview/
 
 https://docs.opsmanager.mongodb.com/current/tutorial/install-simple-test-deployment/
 
+# 0. Install CentOS 8 as Virtual Machine
+```
+$ git clone https://github.com/developer-onizuka/mongoDB_opsManager.git
+$ cd mongoDB_opsManager
+$ vagrant up --provider=libvirt
+$ ssh vagrant@192.168.133.12
+```
+
 # 1. Install mongodb-org
 ```
 $ sudo su
