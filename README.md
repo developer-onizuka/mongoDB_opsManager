@@ -4,6 +4,7 @@ https://docs.opsmanager.mongodb.com/current/core/system-overview/
 
 https://docs.opsmanager.mongodb.com/current/tutorial/install-simple-test-deployment/
 
+# 1. Install mongodb-org
 ```
 $ sudo su
 # cat << EOF > /etc/yum.repos.d/mongodb-org-5.0.repo  
@@ -15,7 +16,10 @@ enabled=1
 gpgkey=https://www.mongodb.org/static/pgp/server-5.0.asc
 EOF
 # dnf install -y mongodb-org
+```
 
+# 2. Creating directory for Ops Manager App DB
+```
 # sudo mkdir -p /data/appdb
 # sudo chown -R mongod:mongod /data
 
@@ -54,7 +58,20 @@ tcp        0      0 127.0.0.1:27017         0.0.0.0:*               LISTEN      
 uid=991(mongodb-mms) gid=988(mongodb-mms) groups=988(mongodb-mms)
 
 # reboot
+```
 
+If you find a result like below, then you might remove the /tmp/mongodb-27017.sock so that you could restart it again.
+```
+# systemctl start mongod.service
+Job for mongod.service failed because the control process exited with error code.
+See "systemctl status mongod.service" and "journalctl -xe" for details.
+```
+
+
+# 3. Start MongoDB Monitoring Service (MMS)
+
+You should reboot before process. If don't do that, the mongodb-mms will stuck.
+```
 # sudo service mongodb-mms start
 Starting pre-flight checks
 Successfully finished pre-flight checks
@@ -81,10 +98,3 @@ tcp6       0      0 :::8080                 :::*                    LISTEN      
 tcp6       0      0 :::22                   :::*                    LISTEN      - 
 ```
 
-
-If you find a result like below, then you might remove the /tmp/mongodb-27017.sock so that you could restart it again.
-```
-# systemctl start mongod.service
-Job for mongod.service failed because the control process exited with error code.
-See "systemctl status mongod.service" and "journalctl -xe" for details.
-```
