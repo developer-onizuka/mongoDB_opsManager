@@ -53,6 +53,8 @@ tcp        0      0 127.0.0.1:27017         0.0.0.0:*               LISTEN      
 # id mongodb-mms
 uid=991(mongodb-mms) gid=988(mongodb-mms) groups=988(mongodb-mms)
 
+# reboot
+
 # sudo service mongodb-mms start
 Starting pre-flight checks
 Successfully finished pre-flight checks
