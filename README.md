@@ -82,7 +82,7 @@ tcp6       0      0 :::22                   :::*                    LISTEN      
 ```
 
 
-If you find such a result, then you might remove the /tmp/mongodb-27017.sock so that you could restart it again.
+If you find a result like below, then you might remove the /tmp/mongodb-27017.sock so that you could restart it again.
 ```
 # systemctl start mongod.service
 Job for mongod.service failed because the control process exited with error code.
