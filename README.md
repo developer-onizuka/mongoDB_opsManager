@@ -1,7 +1,8 @@
 # mongoDB_opsManager
 
 https://docs.opsmanager.mongodb.com/current/core/system-overview/
-https://docs.mongodb.com/manual/tutorial/install-mongodb-enterprise-on-red-hat/
+
+https://docs.opsmanager.mongodb.com/current/tutorial/install-simple-test-deployment/
 
 ```
 $ sudo su
@@ -53,4 +54,23 @@ tcp        0      0 127.0.0.1:27017         0.0.0.0:*               LISTEN      
 uid=991(mongodb-mms) gid=988(mongodb-mms) groups=988(mongodb-mms)
 
 # sudo service mongodb-mms start
+Starting pre-flight checks
+Successfully finished pre-flight checks
+
+Migrate Ops Manager data
+   Running migrations...                                   [  OK  ]
+Starting Ops Manager server
+   Instance 0 starting................                     [  OK  ]
+Starting pre-flight checks
+Successfully finished pre-flight checks
+
+Start Backup Daemon...                                     [  OK  ]
+```
+
+
+If you find such a result, then you might remove the /tmp/mongodb-27017.sock so that you could restart it again.
+```
+# systemctl start mongod.service
+Job for mongod.service failed because the control process exited with error code.
+See "systemctl status mongod.service" and "journalctl -xe" for details.
 ```
