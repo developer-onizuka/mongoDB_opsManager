@@ -106,3 +106,36 @@ tcp6       0      0 :::8080                 :::*                    LISTEN      
 tcp6       0      0 :::22                   :::*                    LISTEN      - 
 ```
 
+# 4. mongoDB-mms-agent startup daemon
+
+You can get the following information from the mongoDB-mms-server when deproying replicaSet. 
+```
+$ curl -OL http://192.168.33.12:8080/download/agent/automation/mongodb-mms-automation-agent-manager-11.0.8.7002-1.x86_64.rhel7.rpm
+$ sudo rpm -U mongodb-mms-automation-agent-manager-11.0.8.7002-1.x86_64.rhel7.rpm
+$ sudo vi /etc/mongodb-mms/automation-agent.config
+$ sudo mkdir -p /data
+$ sudo chown mongod:mongod /data
+$ sudo systemctl start mongodb-mms-automation-agent.service
+$ sudo /sbin/service mongodb-mms-automation-agent start
+```
+
+But you might set up the agent daemon should be enabled thru systemctl command, like below:
+```
+[vagrant@mongo-0 ~]$ sudo systemctl enable mongodb-mms-automation-agent.service
+Created symlink /etc/systemd/system/multi-user.target.wants/mongodb-mms-automation-agent.service → /etc/systemd/system/mongodb-mms-automation-agent.service.
+
+[vagrant@mongo-0 ~]$ sudo systemctl status mongodb-mms-automation-agent.service
+● mongodb-mms-automation-agent.service - MongoDB MMS Automation Agent
+   Loaded: loaded (/etc/systemd/system/mongodb-mms-automation-agent.service; enabled; vendor preset: disa>
+   Active: active (running) since Sun 2021-10-17 03:46:55 UTC; 51s ago
+  Process: 697 ExecStartPre=/usr/bin/chown -R mongod:mongod /var/run/mongodb-mms-automation (code=exited,>
+  Process: 669 ExecStartPre=/usr/bin/mkdir /var/run/mongodb-mms-automation (code=exited, status=0/SUCCESS)
+ Main PID: 706 (sh)
+   Memory: 119.7M
+   CGroup: /system.slice/mongodb-mms-automation-agent.service
+           ├─706 /bin/sh -c /opt/mongodb-mms-automation/bin/mongodb-mms-automation-agent -f /etc/mongodb->
+           └─710 /opt/mongodb-mms-automation/bin/mongodb-mms-automation-agent -f /etc/mongodb-mms/automat>
+
+Oct 17 03:46:55 mongo-0 systemd[1]: Starting MongoDB MMS Automation Agent...
+Oct 17 03:46:55 mongo-0 systemd[1]: Started MongoDB MMS Automation Agent.
+```
