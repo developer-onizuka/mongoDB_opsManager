@@ -80,14 +80,19 @@ See "systemctl status mongod.service" and "journalctl -xe" for details.
 
 You should reboot before starting mongodb-mms. If don't do that, the mongodb-mms will stuck.
 ```
-# sudo service mongodb-mms start
+# sudo service mongodb-mms restart
+Stopping Ops Manager server
+   Instance 0 stopping
+      Trying to shutdown gracefully.                       [  OK  ]
+Stopping the Backup Daemon
+      Trying to shutdown gracefully.                       [  OK  ]
 Starting pre-flight checks
 Successfully finished pre-flight checks
 
 Migrate Ops Manager data
    Running migrations...                                   [  OK  ]
 Starting Ops Manager server
-   Instance 0 starting................                     [  OK  ]
+   Instance 0 starting..............                       [  OK  ]
 Starting pre-flight checks
 Successfully finished pre-flight checks
 
