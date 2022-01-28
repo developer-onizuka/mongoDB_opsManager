@@ -133,8 +133,7 @@ Before this step, please confirm the mongoDB nodes (One primary and Two Readrepl
 
 ![tmux-sync](https://github.com/developer-onizuka/mongoDB_opsManager/blob/main/tmux-sync.png)
 
-
-But you might set up the agent daemon should be enabled thru systemctl command, like below:
+You might set up the agent daemon should be enabled during OS bootup thru systemctl command, like below:
 ```
 [vagrant@mongo-0 ~]$ sudo systemctl enable mongodb-mms-automation-agent.service
 Created symlink /etc/systemd/system/multi-user.target.wants/mongodb-mms-automation-agent.service → /etc/systemd/system/mongodb-mms-automation-agent.service.
