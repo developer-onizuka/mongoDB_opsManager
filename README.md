@@ -110,17 +110,15 @@ tcp6       0      0 :::22                   :::*                    LISTEN      
 
 Before this step, please confirm the mongoDB nodes (One primary and Two Readreplicas) are ready. 
 
-![mongoreplicaset]()
-
-```
-$ curl -OL http://192.168.33.12:8080/download/agent/automation/mongodb-mms-automation-agent-manager-11.0.8.7002-1.x86_64.rhel7.rpm
-$ sudo rpm -U mongodb-mms-automation-agent-manager-11.0.8.7002-1.x86_64.rhel7.rpm
-$ sudo vi /etc/mongodb-mms/automation-agent.config
-$ sudo mkdir -p /data
-$ sudo chown mongod:mongod /data
-$ sudo systemctl start mongodb-mms-automation-agent.service
-$ sudo /sbin/service mongodb-mms-automation-agent start
-```
+(1) Access to the URL of OpsManager like http://192.168.33.12:8080 in my case and create a project.
+(2) Select new Replica Set.
+![mongoreplicaset1](https://github.com/developer-onizuka/mongoDB_opsManager/blob/main/mongodb-replicaset1.png)
+(3) You should register nodes in the opsManager. So click the "see instructions"
+![mongoreplicaset2](https://github.com/developer-onizuka/mongoDB_opsManager/blob/main/mongodb-replicaset2.png)
+(4) You can copy the commands on each terminal on mongoDB node (One primary and Two Readreplicas)
+![mongoreplicaset](https://github.com/developer-onizuka/mongoDB_opsManager/blob/main/mongodb-replicaset.png)
+(5) You might use tmux to sync each terminal.
+![tmux-sync]()
 
 But you might set up the agent daemon should be enabled thru systemctl command, like below:
 ```
