@@ -78,7 +78,7 @@ See "systemctl status mongod.service" and "journalctl -xe" for details.
 
 # 3. Start MongoDB Monitoring Service (MMS)
 
-You should reboot before process. If don't do that, the mongodb-mms will stuck.
+You should reboot before starting mongodb-mms. If don't do that, the mongodb-mms will stuck.
 ```
 # sudo service mongodb-mms start
 Starting pre-flight checks
@@ -108,7 +108,10 @@ tcp6       0      0 :::22                   :::*                    LISTEN      
 
 # 4. mongoDB-mms-agent startup daemon
 
-You can get the following information from the mongoDB-mms-server when deproying replicaSet. 
+Before this step, please confirm the mongoDB nodes (One primary and Two Readreplicas) are ready. 
+
+![mongoreplicaset]()
+
 ```
 $ curl -OL http://192.168.33.12:8080/download/agent/automation/mongodb-mms-automation-agent-manager-11.0.8.7002-1.x86_64.rhel7.rpm
 $ sudo rpm -U mongodb-mms-automation-agent-manager-11.0.8.7002-1.x86_64.rhel7.rpm
