@@ -1,5 +1,7 @@
 # mongoDB_opsManager
 
+If you watch the video how to create MongoDB replicaSet with opsManager, [Click here](https://www.youtube.com/watch?v=kn5Ewf1Tt00).
+
 https://docs.opsmanager.mongodb.com/current/core/system-overview/
 
 https://docs.opsmanager.mongodb.com/current/tutorial/install-simple-test-deployment/
